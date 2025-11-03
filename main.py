@@ -1,5 +1,3 @@
-import nbimporter
-
 from algorithms import fcfs, sjf, round_robin, priority_scheduling
 from linux_fetch import fetch_linux_processes
 from utils import print_table
@@ -34,6 +32,7 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
 
