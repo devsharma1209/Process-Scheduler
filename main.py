@@ -1,38 +1,39 @@
-from algorithms import fcfs, sjf, round_robin, priority_scheduling
+from algorithms import (
+    fcfs,
+    sjf,
+    srjf,
+    round_robin,
+    priority_scheduling
+)
 from linux_fetch import fetch_linux_processes
 from utils import print_table
 from gantt import plot_gantt
 
 
+def run_scheduler(name, func, processes, **kwargs):
+    """Helper to run a scheduler, display results, and plot Gantt chart."""
+    print(f"\nRunning {name} Scheduler...")
+    results = func(processes, **kwargs) if kwargs else func(processes)
+    print_table(results)
+    plot_gantt(results, f"{name} Gantt Chart", filename=f"{name.lower().replace(' ', '_')}_gantt.png")
+    return results
+
+
 def main():
     print("Fetching Linux processes...")
     processes = fetch_linux_processes(top_n=5)
+
+    print("\nFetched Processes:")
     for p in processes:
         print(p)
-    
-    print("\nRunning FCFS Scheduler...")
-    fcfs_results = fcfs(processes)
-    print_table(fcfs_results)
-    plot_gantt(fcfs_results, "FCFS Gantt Chart")
 
-    print("\nRunning SJF Scheduler...")
-    sjf_results = sjf(processes)
-    print_table(sjf_results)
-    plot_gantt(sjf_results, "SJF Gantt Chart")
+    # Run each scheduler
+    run_scheduler("FCFS", fcfs, processes)
+    run_scheduler("SJF (Non-Preemptive)", sjf, processes)
+    run_scheduler("SRJF (Preemptive SJF)", srjf, processes)
+    run_scheduler("Round Robin", round_robin, processes, quantum=2)
+    run_scheduler("Priority Scheduling", priority_scheduling, processes)
 
-    print("\nRunning Round Robin Scheduler...")
-    rr_results = round_robin(processes, quantum=2)
-    print_table(rr_results)
-    plot_gantt(rr_results, "Round Robin Gantt Chart")
-
-    print("\nRunning Priority Scheduling...")
-    prio_results = priority_scheduling(processes)
-    print_table(prio_results)
-    plot_gantt(prio_results, "Priority Scheduling Gantt Chart")
 
 if __name__ == "__main__":
     main()
-
-
-
-
