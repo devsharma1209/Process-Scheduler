@@ -10,9 +10,9 @@ OS Project - Process Scheduler
 
 
 things to do rn:
-1. update the table to get other details like TAT, Rspeonce time, WT ect. + Add Performance Metricsl like CPU Utilization (%) Throughput (processes per unit time) Context Switch Count (for Round Robin) ect.
-2. add Shedulers like SJF, SRJF ect. + see any important or industry standard schedulers
-3. generate gantt charts for all the schedulers
+1. update the table to get other details like TAT, Rspeonce time, WT ect. + Add Performance Metricsl like CPU Utilization (%) Throughput (processes per unit time) Context Switch Count (for Round Robin) ect.~~
+2. ~~add Shedulers like SJF, SRJF ect. + see any important or industry standard schedulers
+3. ~~generate gantt charts for all the schedulers~~
 4. Better visulization - see how can i imporve the img of the gantt charts
 5. Adv. - Implement ML to tell which is the best schedulers for the given workload
 6. Document the entire process + create the ReadMe.md file
@@ -20,3 +20,29 @@ things to do rn:
 8. Opt.  - Add Process Starvation Detector and then automatically apply aging mechanism
 9. Opt. -  Mini Linux Task Manager (with Kill, Priority & Graphs)
 10. 
+
+
+Phase 1 (Core Improvements):
+
+├── #1: Add Response Time + Context Switches
+
+├── #4: Improve Gantt chart aesthetics
+
+└── #6: Write basic README
+
+
+
+Phase 2 (Advanced Features):
+
+├── #7: Multi-chart comparison view
+
+└── #1: Add statistical metrics (distribution)
+
+
+Phase 3 (Optional Enhancements):
+
+├── #5: ML recommendation system
+
+├── #8: Starvation detector
+
+└── #9: Task manager GUI
