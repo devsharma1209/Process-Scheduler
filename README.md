@@ -23,11 +23,13 @@ things to do rn:
 
 
 Phase 1 (Core Improvements):
+
 ├── #1: Add Response Time + Context Switches
 ├── #4: Improve Gantt chart aesthetics
 └── #6: Write basic README
 
 Phase 2 (Advanced Features):
+
 ├── #7: Multi-chart comparison view
 └── #1: Add statistical metrics (distribution)
 
