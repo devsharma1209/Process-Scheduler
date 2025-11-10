@@ -77,11 +77,17 @@ def main():
         print("No processes fetched. Exiting.")
         return
 
+    
     print("\nFetched Processes (normalized):")
-    for p in processes:
-        # Ensure required keys exist with sensible fallbacks
-        p.setdefault("priority", 1)
-        print(p)
+for p in processes:
+    p.setdefault("priority", 1)
+    # Nicely formatted output
+    print(f"PID: {p['pid']:>5} | "
+          f"Name: {p.get('name', 'unknown'):<15} | "
+          f"Priority: {p['priority']:<3} | "
+          f"Burst: {p['burst']:<3} | "
+          f"Arrival: {p['arrival']:<3}")
+
 
     # Define scheduler suite
     schedulers = [
@@ -125,3 +131,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
