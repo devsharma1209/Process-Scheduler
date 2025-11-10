@@ -15,10 +15,11 @@ def fetch_linux_processes(top_n=5):
             continue
         processes.append({
             "pid": int(parts[0]),
-            "name": parts[1],
+            "name": parts[1][:15].lower(), # Normalize name
             "priority": max(1, 140 - int(parts[2])),  # invert PRI so higher = better
             "burst": max(1, int(parts[3]) // 10),     # rough burst estimate
             "arrival": random.randint(0, 5 * i)       # simulated arrival
         })
     return processes
+
 
